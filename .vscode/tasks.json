@@ -4,13 +4,13 @@
         {
             "label": "Clean",
             "type": "shell",
-            "command": "rm -rf dist",
+            "command": "cmd /c \"if exist dist rmdir /s /q dist\"",
             "problemMatcher": []
         },
         {
             "label": "Build",
             "type": "shell",
-            "command": "pnpm build",
+            "command": "powershell -Command \"node scripts/tsdown-build.mjs; node scripts/copy-plugin-sdk-root-alias.mjs; pnpm build:plugin-sdk:dts; node --import tsx scripts/write-plugin-sdk-entry-dts.ts; node --import tsx scripts/canvas-a2ui-copy.ts; node --import tsx scripts/copy-hook-metadata.ts; node --import tsx scripts/copy-export-html-templates.ts; node --import tsx scripts/write-build-info.ts; node --import tsx scripts/write-cli-startup-metadata.ts; node --import tsx scripts/write-cli-compat.ts\"",
             "problemMatcher": [],
             "dependsOn": ["Clean"]
         }

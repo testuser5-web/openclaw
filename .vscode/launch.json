@@ -43,7 +43,8 @@
                 "NODE_ENV": "development",
                 "OPENCLAW_SKIP_CHANNELS": "0",
                 "OPENCLAW_SKIP_PROVIDERS": "0"
-            }
+            },
+            "preLaunchTask": "Build"
         },
         {
             "name": "Gateway (built)",
